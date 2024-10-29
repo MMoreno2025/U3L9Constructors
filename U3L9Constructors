@@ -1,0 +1,106 @@
+//Malia Moreno | 29 October 2024//
+package com.mycompany.u3l9constructors;
+import java.util.Scanner;
+
+public class U3L9Constructors {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        //create driver class called "course details"
+        //update serveral of this cours'es objects (at least 3)
+        System.out.print("What is your first courses name?\t");
+        Course CourseDetails01 = new Course(scan.nextLine());
+        System.out.print("What is your first courses code?\t");
+        CourseDetails01.setCourseCode(scan.nextLine());
+        System.out.print("What is your first courses instructor's name?\t");
+        CourseDetails01.setInstructorName(scan.nextLine());
+        System.out.print("What is the point total of your first course?\t");
+        CourseDetails01.setPointTotal(scan.nextInt());
+        
+        
+        //Create a course using the full object constructor//
+        System.out.print("What is your second courses name?\t");
+        String courseName02 = scan.nextLine();
+        System.out.print("What is your second courses code?\t");
+        String courseCode02 = scan.nextLine();
+        System.out.print("What is your second courses instructor's name?\t");
+        String instName02 = scan.nextLine();
+        System.out.print("What is the point total of your second course?\t");
+        Course CourseDetails02 = new Course(courseName02, courseCode02, scan.nextInt(), instName02);
+        
+        System.out.print("\n\n\tName Only Constructor\n"+CourseDetails01.returnString());
+        System.out.print("\n\n\tFully Defined Constructor\n"+CourseDetails02.returnString());
+
+    }
+}
+
+
+class Course{
+    //define variables//
+    private String CourName;
+    private String courseCode;
+    private String instName;
+    private int pointTotal;
+    
+    //Create Constructor Class//
+    public Course(){
+        CourName = null;
+        courseCode = null;
+        instName = null;
+        
+        pointTotal = 0;
+    }
+    
+    //define one course constructor to accept and initialize all instance data//
+    public Course(String course, String cc , int pt, String name){
+        CourName = course;
+        courseCode = cc;
+        pointTotal = pt;
+        instName = name;
+    }
+    
+    //define a second constructor which accepts course name only//
+    public Course(String course){
+        CourName = course;
+        courseCode = null;
+        instName = null;
+        pointTotal = 0;
+    }
+    
+    //include mutator (setter) methods for all instances//
+    public void setCourseName(String course){
+        CourName = course;
+    }
+    public void setCourseCode(String cc){
+        courseCode = cc;
+    }
+    public void setInstructorName(String name){
+        instName = name;
+    }
+    public void setPointTotal(int points){
+        pointTotal = points;
+    }
+    
+    //include accessor (getter) methods for all instances//
+    public String getCourseName(){
+        return CourName;
+    }
+    public String getCourseCode(){
+        return courseCode;
+    }
+    public String getInstructorName(){
+        return instName;
+    }
+    public int getPointTotal(){
+        return pointTotal;
+    }
+    
+    
+    //include a toString method that returns a multi-line description of the course//
+    public String returnString(){
+        return  "CourseName:\t"+CourName+
+                "\nCourseCode:\t"+courseCode+
+                "\nInstruName:\t"+instName+
+                "\nPointTotal:\t"+Integer.toString(pointTotal);
+    }
+}
