@@ -15,7 +15,7 @@ public class U3L9Constructors {
         System.out.print("What is your first courses instructor's name?\t");
         CourseDetails01.setInstructorName(scan.nextLine());
         System.out.print("What is the point total of your first course?\t");
-        CourseDetails01.setPointTotal(scan.nextInt());
+        CourseDetails01.setPointTotal(scan.next());
         
         
         //Create a course using the full object constructor//
@@ -24,7 +24,7 @@ public class U3L9Constructors {
         System.out.print("What is your second courses code?\t");
         String courseCode02 = scan.nextLine();
         System.out.print("What is your second courses instructor's name?\t");
-        String instName02 = scan.nextLine();
+        String instName02 = scan.next();
         System.out.print("What is the point total of your second course?\t");
         Course CourseDetails02 = new Course(courseName02, courseCode02, scan.nextInt(), instName02);
         
